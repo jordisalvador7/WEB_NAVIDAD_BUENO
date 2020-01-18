@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Salva la Navidad</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="CSS/Style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../JS/Inventory.js"></script>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#myPage">Username</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#inventory">INVENTARIO</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="jumbotron text-center">
+    <h1>¡SALVA LA NAVIDAD!</h1>
+    <p>¡Salva la Navidad sin que te descubran los niños!</p>
+</div>
+
+<div id="inventory" class="container-fluid">
+    <div class="row text-center">
+        <h2>INVENTORY</h2><br>
+    </div>
+    <div class="container">
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Objetos</a>
+                    </h4>
+                    <div id="collapse1" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div class="row text-center">
+                                <div class="col-sm-3">
+                                    <img id="botas" src="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/4739/santa-boots-clipart-md.png" alt="Guerrera" width="250" height="250">
+                                </div>
+                                <div class="col-sm-3">
+                                    <img id="saco" src="https://vignette.wikia.nocookie.net/clubpenguin/images/d/d4/Santas-present-bag.png/revision/latest/scale-to-width-down/340?cb=20140113154109&path-prefix=es" alt="Guerrera" width="250" height="250">
+                                </div>
+                                <div class="col-sm-3">
+                                    <img id="regalo" src="https://images.vexels.com/media/users/3/134890/isolated/preview/7f6ef474d0ae6f65d072ff98fad7326e-icono-de-lazo-rojo-de-caja-de-regalo-amarillo-3-by-vexels.png" alt="Guerrera" width="250" height="250">
+                                </div>
+                                <div class="col-sm-3">
+                                    <img id="reno" src="https://images.vexels.com/media/users/3/133969/isolated/preview/e8d6fbf880376ebdca98ca391538dc69-reno-parado-icono-de-dibujos-animados-25-by-vexels.png" alt="Guerrera" width="250" height="250">
+                                </div>
+                            </div>
+                            <div class="row text-center">
+                                <div class="col-sm-3">
+                                    <h3 id="contenedor_botas">Botas</h3>
+                                </div>
+                                <div class="col-sm-3">
+                                    <h3 id="contenedor_saco">Saco</h3>
+                                </div>
+                                <div class="col-sm-3">
+                                    <h3 id="contenedor_regalo">Regalos</h3>
+                                </div>
+                                <div class="col-sm-3">
+                                    <h3 id="contenedor_reno">Renos</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

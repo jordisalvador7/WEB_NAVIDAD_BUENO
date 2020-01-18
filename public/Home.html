@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Salva la Navidad</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="CSS/Style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="JS/Home.js"></script>
+
+</head>
+<body id = "myPage" data-spy="scroll0" data-target=".navbar" data-offset="60">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#myPage">Username</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#about">PERFIL</a></li>
+                <li><a href="#store">TIENDA</a></li>
+                <li><a href="#inventory">INVENTARIO</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+</nav>
+
+<div class="jumbotron text-center">
+    <h1>¡SALVA LA NAVIDAD!</h1>
+    <p>¡Reparte los regalos de navidad sin que te descubran los niños!</p>
+</div>
+
+<div id="about" class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2">
+            <img class="centrado" src="https://images.vexels.com/media/users/3/133388/isolated/preview/58a3f0b452b24956b90a8bea47e0df96-icono-de-dibujos-animados-de---rbol-de-navidad-41-by-vexels.png" alt="Guerrera" width="200" height="180">
+        </div>
+        <div class="col-sm-3 bg-grey">
+            <h2 class="text-white">PERFIL</h2>
+            <table id ="mytabla" class="table table-hover">
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-3 bg-grey">
+            <h2 class="text-white">ESTADÍSTICAS</h2>
+            <table id= "statistics_tabla"class="table table-hover ">
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-2">
+            <img class="centrado" src="https://images.vexels.com/media/users/3/133388/isolated/preview/58a3f0b452b24956b90a8bea47e0df96-icono-de-dibujos-animados-de---rbol-de-navidad-41-by-vexels.png" alt="Guerrera" width="200" height="180">
+        </div>
+    </div>
+</div>
+<div id="store" class="container-fluid text-center ">
+    <h2>TIENDA</h2>
+    <br>
+    <div class="row slideanim">
+        <div class="col-sm-3">
+            <h4><strong>Botas</strong></h4>
+        </div>
+        <div class="col-sm-3">
+            <h4><strong>Saco Grande</strong></h4>
+        </div>
+        <div class="col-sm-3">
+            <h4><strong>Regalo</strong></h4>
+        </div>
+        <div class="col-sm-3">
+            <h4><strong>Reno</strong></h4>
+        </div>
+        <div class="row slideanim">
+            <div class="col-sm-3">
+                <img src="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/4739/santa-boots-clipart-md.png" alt="Guerrera" width="250" height="250">
+            </div>
+            <div class="col-sm-3">
+                <img src="https://vignette.wikia.nocookie.net/clubpenguin/images/d/d4/Santas-present-bag.png/revision/latest/scale-to-width-down/340?cb=20140113154109&path-prefix=es" alt="Guerrera" width="250" height="250">
+            </div>
+            <div class="col-sm-3">
+                <img src="https://images.vexels.com/media/users/3/134890/isolated/preview/7f6ef474d0ae6f65d072ff98fad7326e-icono-de-lazo-rojo-de-caja-de-regalo-amarillo-3-by-vexels.png" alt="Guerrera" width="250" height="250">
+            </div>
+            <div class="col-sm-3">
+                <img src="https://images.vexels.com/media/users/3/133969/isolated/preview/e8d6fbf880376ebdca98ca391538dc69-reno-parado-icono-de-dibujos-animados-25-by-vexels.png" alt="Guerrera" width="250" height="250">
+            </div>
+
+            <div class="row slideanim">
+                <div class="col-sm-3 center">
+                    <button type="button" class="btn btn-primary" data-toggle="popover1" data-placement="bottom" title="Coste: 50$" data-content="Se más sigiloso con estas botas">INFO</button>
+                    <button id="botas" type="button" class="btn btn-buya" onclick="buy(this.id);myfunction(id)">BUY</button>
+                </div>
+                <div class="col-sm-3 center">
+                    <button type="button" class="btn btn-primary" data-toggle="popover1" data-placement="bottom" title="Coste: 75$" data-content="Lleva más regalos con este gran saco">INFO</button>
+                    <button id="saco" type="button" class="btn btn-buya" onclick="buy(this.id);myfunction(id)">BUY</button>
+                </div>
+                <div class="col-sm-3 center">
+                    <button type="button" class="btn btn-primary" data-toggle="popover1" data-placement="bottom" title="Coste: 25$" data-content="¡Compra todos los que puedas para entregarlos!">INFO</button>
+                    <button id="regalo" type="button" class="btn btn-buya" onclick="buy(this.id);myfunction(id)">BUY</button>
+                </div>
+                <div class="col-sm-3 center">
+                    <button type="button" class="btn btn-primary" data-toggle="popover1" data-placement="bottom" title="Coste: 100$" data-content="Gana más tiempo">INFO</button>
+                    <button id="reno" type="button" class="btn btn-buya" onclick="buy(this.id);myfunction(id)">BUY</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div id="inventory" class="container-fluid text-center ">
+
+        <div class="row text-center">
+            <h1>INVENTARIO</h1>
+            <button class="btn btn-default" id="inventory_button">Accede</button>
+        </div>
+
+
+    </div>
+
+</div>
+</body>
+
+</html>
