@@ -84,7 +84,7 @@ h4 {
 .panel-footer .btn:hover {
     border: 1px solid #000000;
     background-color: #fff !important;
-    color: #470A82;
+    color: #F33434;
 }
 .btn-buya{
     background-color: #F33434;
@@ -119,7 +119,7 @@ div.center {
 }
 .navbar {
     margin-bottom: 0;
-    background-color: #F33434;
+    background-color: #e63737ff;
     z-index: 9999;
     border: 0;
     font-size: 12px !important;
