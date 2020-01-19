@@ -1,5 +1,6 @@
-var BASE_URI = "http://localhost:8080/dsaApp";
-var username = "Jordi";
+var BASE_URI = "http://147.83.7.205:8080";
+var username = null;
+var inventario_nulo = 0;
 function decode() {
     var queryString = decodeURIComponent(window.location.search);
     queryString = queryString.substring(1);
@@ -25,7 +26,7 @@ function buy(id){
         url: '/dsaApp/user/buy/'+ username,
         data: JSON.stringify(myObj),
         success: function(data) {
-            location.href = "http://localhost:8080/Inventory.html";
+            location.href = "http://147.83.7.205:8080/Inventory.html?username="+username;
         },
         error: function (xhr, ajaxOptions, thrownError) {
             if(xhr.status===500){
@@ -82,28 +83,42 @@ $(document).ready(function(){
             }
         });
     });
+    var paramstr = window.location.search.substr(1);
+    var paramarr = paramstr.split ("&");
+    var params = {};
+
+    for ( var i = 0; i < paramarr.length; i++) {
+        var tmparr = paramarr[i].split("=");
+        params[tmparr[0]] = tmparr[1];
+    }
+    if (params['username']) {
+        console.log('El valor del parámetro variable es: '+params['username']);
+        username=params['username'];
+    } else {
+        console.log('No se envió el parámetro variable');
+    }
     $("#inventory_button").click(function () {
-        location.href = "http://localhost:8080/Inventory.html";
+        location.href = "http://localhost:8080/Inventory.html?username="+ params['username'];
     })
     titulo();
-    $.get("http://localhost:8080/dsaApp/user/profile/"+username, function (data) {
+    $.get("http://147.83.7.205:8080/dsaApp/user/profile/"+username, function (data) {
         var username = data.username;
         var password = data.password;
-        var name = data.name;
+        /*var name = data.name;
         var surname = data.surname;
         var mail = data.mail;
-        var age = data.age;
+        var age = data.age;*/
         var username_text = "Usuario";
         var password_text = "Contraseña";
-        var name_text = "Nombre";
+        /*var name_text = "Nombre";
         var surname_text = "Apellido";
         var mail_text ="Mail";
-        var age_text ="Edad";
+        var age_text ="Edad";*/
         console.log("Prerfil",data);
         var insertion = "<tr><td>" + username_text + "</td><td>" + username + "</td></tr><tr><td>" + password_text + "</td><td>" + password + "</td></tr><tr><td>" + name_text+"</td>><td>" + name + "</td></tr><tr><td>" + surname_text + "</td><td>" + surname + "</td></tr><tr><td>" + mail_text + "</td><td>" + mail + "</td></tr><tr><td>" + age_text + "</td><td>" + age + "</td></tr>";
         $("#mytabla tbody").append(insertion);
     }, "json");
-    $.get("http://localhost:8080/dsaApp/user/statistics/"+username, function (data) {
+    $.get("http://147.83.7.205:8080/dsaApp/user/statistics/"+params['username'], function (data) {
         var partidasjugadas = data.partidasjugadas;
         var regalosentregados = data.regalosentregados;
         var minutosjugados = data.minutosjugados;
@@ -116,11 +131,16 @@ $(document).ready(function(){
         var insertion = "<tr><td>" + partidasjugadas_text + "</td><td>" + partidasjugadas + "</td></tr><tr><td>" + minutosjugados_text + "</td><td>" + minutosjugados + "</td></tr><tr><td>" +regalosentregados_text +"</td>><td>" + regalosentregados + "</td></tr>";
         $("#statistics_tabla tbody").append(insertion);
     }, "json");
-    $.get("http://localhost:8080/dsaApp/user/inventory/"+username, function (data) {
+    $.get("http://147.83.7.205:8080/dsaApp/user/inventory/"+params['username'], function (data) {
         console.log("Data:",data.lista[0].nombre);
         for (let i = 0; i<data.lista.length; i++)
         {
             myfunction(data.lista[i].nombre);
         }
-    }, "json");
+    }, "json").fail(function (error) {
+        inventario_nulo=1;
+    });
+    $("#ranking_button").click(function () {
+        window.location="http://147.83.7.205:8080/ranking.html"
+    })
 })

@@ -8,10 +8,10 @@ public class User {
 
     private String username;
     private String password;
-    private String name;
+    /*private String name;
     private String surname;
     private String mail;
-    private int age;
+    private int age;*/
     private List<Objeto> listObjetos;
 
     private int regalosentregados;
@@ -26,20 +26,20 @@ public class User {
     public User(String username, String password, String name, String surname, String mail, int age){
         this.username = username;
         this.password = password;
-        this.name = name;
+        /*this.name = name;
         this.surname = surname;
         this.mail = mail;
-        this.age = age;
+        this.age = age;*/
         this.listObjetos = new ArrayList<Objeto>();
     }
 
     public User(String username, String password, String name, String surname, String mail, int age, List<Objeto> listObjetos, int regalosentregados, int minutosjugados, int partidasjugadas) {
         this.username = username;
         this.password = password;
-        this.name = name;
+        /*this.name = name;
         this.surname = surname;
         this.mail = mail;
-        this.age = age;
+        this.age = age;*/
         this.listObjetos = listObjetos;
         this.regalosentregados = regalosentregados;
         this.minutosjugados = minutosjugados;
@@ -49,10 +49,10 @@ public class User {
     public User(String username, String password, String name, String surname, String mail, int age, int regalosentregados, int minutosjugados, int partidasjugadas) {
         this.username = username;
         this.password = password;
-        this.name = name;
+        /*this.name = name;
         this.surname = surname;
         this.mail = mail;
-        this.age = age;
+        this.age = age;*/
         this.listObjetos = new ArrayList<Objeto>();
         this.regalosentregados = regalosentregados;
         this.minutosjugados = minutosjugados;
@@ -83,7 +83,7 @@ public class User {
         this.password = password;
     }
 
-    public String getName() {
+    /*public String getName() {
         return name;
     }
 
@@ -113,7 +113,7 @@ public class User {
 
     public void setAge(int age) {
         this.age = age;
-    }
+    }*/
 
     public List<Objeto> getListObjetos() {
         return listObjetos;

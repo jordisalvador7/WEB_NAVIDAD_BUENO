@@ -6,7 +6,7 @@ var contrenos=0;
 
 function volver(id)
 { console.log("id",id);
-    location.href = "http://localhost:8080/Home.html";
+    location.href = "http://147.83.7.205:8080/Home.html";
 }
 $(document).ready(function() {
     // Add smooth scrolling to all links in navbar + footer link
@@ -42,7 +42,7 @@ $(document).ready(function() {
     });
     console.log("EEEEEEEE");
     var i=0;
-    $.get("http://localhost:8080/dsaApp/user/inventory", function (data) {
+    $.get("http://147.83.7.205:8080/dsaApp/user/inventory", function (data) {
         console.log("Data:",data);
         console.log("AA:",data.lista[i]);
         while(i<data.lista.length) {

@@ -4,10 +4,10 @@ public class UserProfile {
 
     private String username;
     private String password;
-    private String name;
+    /*private String name;
     private String surname;
     private String mail;
-    private int age;
+    private int age;*/
 
     public UserProfile() {
     }
@@ -15,10 +15,10 @@ public class UserProfile {
     public UserProfile(String username, String password, String name, String surname, String mail, int age) {
         this.username = username;
         this.password = password;
-        this.name = name;
+        /*this.name = name;
         this.surname = surname;
         this.mail = mail;
-        this.age = age;
+        this.age = age;*/
     }
 
     public String getUsername() {
@@ -37,7 +37,7 @@ public class UserProfile {
         this.password = password;
     }
 
-    public String getName() {
+    /*public String getName() {
         return name;
     }
 
@@ -67,5 +67,5 @@ public class UserProfile {
 
     public void setAge(int age) {
         this.age = age;
-    }
+    }*/
 }
