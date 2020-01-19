@@ -6,7 +6,11 @@ var contrenos=0;
 
 function volver(id)
 { console.log("id",id);
-    location.href = "http://147.83.7.205:8080/Home.html";
+    location.href = "http://147.83.7.205:8080/Home.html?username="+username;
+}
+function titulo() {
+    var container = document.getElementById("titul");
+    container.innerHTML = '<h1>¡SALVA LA NAVIDAD!</h1>';
 }
 $(document).ready(function() {
     // Add smooth scrolling to all links in navbar + footer link
@@ -40,23 +44,39 @@ $(document).ready(function() {
             }
         });
     });
+    var paramstr = window.location.search.substr(1);
+    var paramarr = paramstr.split ("&");
+    var params = {};
+
+    for ( var i = 0; i < paramarr.length; i++) {
+        var tmparr = paramarr[i].split("=");
+        params[tmparr[0]] = tmparr[1];
+    }
+    if (params['username']) {
+        console.log('El valor del parámetro variable es: '+params['username']);
+        username=params['username'];
+    } else {
+        console.log('No se envió el parámetro variable');
+    }
+    titulo();
     console.log("EEEEEEEE");
     var i=0;
-    $.get("http://147.83.7.205:8080/dsaApp/user/inventory", function (data) {
+    $.get("http://147.83.7.205:8080/dsaApp/user/inventory"+username, function (data) {
         console.log("Data:",data);
-        console.log("AA:",data.lista[i]);
+
         while(i<data.lista.length) {
+            console.log("AA:",data.lista[i]);
             if (data.lista[i] == "botas") {
                 contbotas = 1;
             }
             if (data.lista[i] == "saco") {
-                contregalos = 1;
+                contsaco = 1;
             }
             if (data.lista[i] == "regalos") {
-                contsaco++;
+                contregalos = data.lista[i].amount;
             }
             if (data.lista[i] == "renos") {
-                contrenos++;
+                contrenos = data.lista[i].amount;
             }
 
             i++;

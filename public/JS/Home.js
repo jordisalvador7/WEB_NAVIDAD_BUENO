@@ -98,7 +98,7 @@ $(document).ready(function(){
         console.log('No se envió el parámetro variable');
     }
     $("#inventory_button").click(function () {
-        location.href = "http://localhost:8080/Inventory.html?username="+ params['username'];
+        location.href = "http://147.83.7.205:8080/Inventory.html?username="+ params['username'];
     })
     titulo();
     $.get("http://147.83.7.205:8080/dsaApp/user/profile/"+username, function (data) {

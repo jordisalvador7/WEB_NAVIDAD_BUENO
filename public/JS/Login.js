@@ -1,42 +1,8 @@
-var value1="";
+var username = "jota";
+var BASE_URI = "http://147.83.7.205:8080/dsaApp/";
 
-function setCookie(cname,cvalue,exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires=" + d.toGMTString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-
-function checkCookie() {
-    var user = getCookie("username");
-    console.log("Usuario;", user);
-    if (user != "") {
-        alert("Hola: "+ user);
-        value1=user;
-        var queryString ="?"+value1;
-        location.href = "http://localhost:8080/Home.html";
-        window.location.href = "Home.html" + queryString;
-    }
-}
 $(document).ready(function(){
-    console.log("AAA");
-    checkCookie();
+    console.log("Hola");
     $('#login').on('submit', function(e){
         user = $("#loginUsername").val();
         var myObj = {
@@ -44,21 +10,24 @@ $(document).ready(function(){
             password: $("#loginPassword").val()
         };
         e.preventDefault();
-        console.log("BBB");
+        console.log("Hola hola");
         $.ajax({
             type: 'POST',
-            url: '/dsaApp/user/login',
+            url: 'http://147.83.7.205:8080/dsaApp/auth/login',
             data: JSON.stringify(myObj),
-            success: function(data) {
-                value1=user;
-                setCookie("username", user, 30);
-                location.href = "http://localhost:8080/Home.html";
-                var queryString ="?"+value1;
-                window.location.href = "Home.html" + queryString;
-            },
+            success: function(data,xhr) {
+                if(xhr.status==201){
+                    location.href = "http://147.83.205:8080/admin.html";
+                }
+                else {
+                    window.location = "http://147.83.7.205:8080/Home.html?username=" + $("#loginUsername").val();
+                }},
             error: function (xhr, ajaxOptions, thrownError) {
                 if(xhr.status===500){
-                    alert("Contraseña incorrecta");
+                    alert("La contraseña no coincide");
+                }
+                if(xhr.status==201){
+                    location.href = "http://147.83.205:8080/admin.html";
                 }
                 else{
                     alert("Usuario no encontrado");
@@ -69,28 +38,32 @@ $(document).ready(function(){
         });
     });
     $('#register').on('submit', function(e){
-        var myObj = {
+        var myObj2 = {
             username: $("#registerUsername").val(),
-            password: $("#registerPassword").val()
+            password: $("#registerPassword").val(),
+            name: $("#registerName").val(),
+            surname: $("#registerSurname").val(),
+            mail: $("#registerMail").val(),
+            age: $("#registerAge").val()
         };
         e.preventDefault();
         $.ajax({
             type: 'POST',
-            url: '/dsaApp/user/register',
-            data: JSON.stringify(myObj),
+            url: 'http://147.83.7.205:8080/dsaApp/auth/register',
+            data: JSON.stringify(myObj2),
             success: function(data) {
-                var username = data.username;
-                var password = data.password;
-                document.getElementById('registerTextUsername').innerHTML = "Usuario: "+ username.toString();
-                document.getElementById('registerTextPassword').innerHTML = "Contraseña: "+ password.toString();
-                var container = document.getElementById('secondRow');
-                var registerContainer = document.getElementById('registerResponse');
-                container.style.display="block";
-                registerContainer.style.display="block";
+                window.location="http://147.83.7.205:8080/Home.html?username="+ $("#registerUsername").val();
             },
             error: function (xhr, ajaxOptions, thrownError) {
-                alert("El usuario ya existe");
-            },
+                if(xhr.status===500) {
+                    alert("La contraseña no coincide");
+                }
+                if(xhr.status===201) {
+                    window.location="http://147.83.7.205:8080/Home.html?username="+ $("#registerUsername").val();
+                }
+                else {
+                    alert("El usuario ya existe.");
+                }},
             contentType: "application/json",
             dataType: 'json'
         });

@@ -40,9 +40,9 @@ $(document).ready(function() {
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 if (xhr.status === 500) {
-                    alert("Password not match");
+                    alert("La contraseña no coincide");
                 } else {
-                    alert("User not found");
+                    alert("Usuario no encontrado");
                 }
             },
             contentType: "application/json"
@@ -58,9 +58,9 @@ $(document).ready(function() {
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 if (xhr.status === 500) {
-                    alert("Password not match");
+                    alert("La contraseña no coincide");
                 } else {
-                    alert("User not found");
+                    alert("Usuario no encontrado");
                 }
             },
             contentType: "application/json"
